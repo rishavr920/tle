@@ -130,16 +130,16 @@ void printarray(const vector<int>& ans) { for (auto& x : ans) cout << x << " "; 
 // Solve & Main
 void solve() {
     // Your solution here
-    //3 ka multiple hona chahiye to kch ni just see remainder
-    //remainder can be 0,1,2 agar 0 h tb to koi move ni h because
-    //ya to 1 add krna h ya 1 minus or first ko jtne k liye 3 ka multpl hona chahiye
-    //but agar 100 h to isme remainder 1 h to kya kch ni 1 minnus kr do first jeet gya
-    //but agar 98 h to isme remainder 2 h to kya kch ni 1 add kr do mulitple of 3 ho jayega fir first jeet jayega
-    int n;
-    cin>>n;
-    int remainder = n%3;
-    if(remainder==0)cout<<"Second"<<endl;
-    else cout<<"First"<<endl;
+    int a,b,sig=0;
+    cin>>a>>b;
+    vector<int>arr(a);
+    for(int i=0;i<a;i++){
+        cin>>arr[i];
+        if(arr[i]==b)sig=1;
+    }
+    if(sig)cout<<"YES"<<endl;
+    else cout<<"NO"<<endl;
+
 }
 
 int main() {

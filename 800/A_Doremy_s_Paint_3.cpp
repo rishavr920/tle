@@ -130,16 +130,28 @@ void printarray(const vector<int>& ans) { for (auto& x : ans) cout << x << " "; 
 // Solve & Main
 void solve() {
     // Your solution here
-    //3 ka multiple hona chahiye to kch ni just see remainder
-    //remainder can be 0,1,2 agar 0 h tb to koi move ni h because
-    //ya to 1 add krna h ya 1 minus or first ko jtne k liye 3 ka multpl hona chahiye
-    //but agar 100 h to isme remainder 1 h to kya kch ni 1 minnus kr do first jeet gya
-    //but agar 98 h to isme remainder 2 h to kya kch ni 1 add kr do mulitple of 3 ho jayega fir first jeet jayega
+    //according to my observation and dmag lagane k baad ye smjh aaya ki dkho tm kch b kr do 
+    //pr in order to satisfy contd do case ho skte hai distinct no adhik se adhik do ho skte h ya same hi ho sb
+    //fir distinct no ka count rkho dono k count ka difference agar 1 h ya same h tb to yes else no
+
     int n;
     cin>>n;
-    int remainder = n%3;
-    if(remainder==0)cout<<"Second"<<endl;
-    else cout<<"First"<<endl;
+    vector<int>v(n);
+    unordered_map<int,int>mp;
+    for(int i=0;i<n;i++){
+        cin>>v[i];
+        mp[v[i]]++;
+    }
+    int ans=0;
+    if(mp.size()>2)cout<<"No"<<endl;
+    else if(mp.size()==1)cout<<"Yes"<<endl;
+    else{
+        for(auto it:mp){
+        ans = abs(ans-it.second);
+    }
+    if(ans>1)cout<<"No"<<endl;
+    else cout<<"Yes"<<endl;
+}
 }
 
 int main() {
